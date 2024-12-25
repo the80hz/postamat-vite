@@ -10,6 +10,7 @@ function App() {
   const [attempts, setAttempts] = useState(0);
   const [isLocked, setIsLocked] = useState(false);
   const [lockTimer, setLockTimer] = useState(0);
+  const attemptsLeft = 3 - attempts;
 
   const handlePinSubmit = (pin) => {
     if (VALID_PINS.includes(pin)) {
@@ -45,7 +46,11 @@ function App() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-100 p-4">
       {screen === "pin" && (
-        <PinScreen onSubmit={handlePinSubmit} disabled={isLocked} />
+        <PinScreen
+          onSubmit={handlePinSubmit}
+          disabled={isLocked}
+          attemptsLeft={attemptsLeft}
+        />
       )}
       {screen === "delivery" && <DeliveryScreen />}
       {screen === "error" && <ErrorScreen lockTimer={lockTimer} />}

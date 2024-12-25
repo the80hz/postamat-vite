@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Keyboard from "./Keyboard";
 
-export default function PinScreen({ onSubmit, disabled }) {
+export default function PinScreen({ onSubmit, disabled, attemptsLeft }) {
   const [pin, setPin] = useState("");
 
   const handleDigit = (digit) => {
@@ -31,6 +31,11 @@ export default function PinScreen({ onSubmit, disabled }) {
         ))}
       </div>
       <Keyboard onDigitPress={handleDigit} onClear={handleClear} disabled={disabled} />
+      {!disabled && attemptsLeft > 0 && (
+        <div className="text-gray-600 mt-2">
+          Осталось {attemptsLeft} попыток
+        </div>
+      )}
       {disabled && <div className="text-red-500 mt-2">Экран временно заблокирован</div>}
     </div>
   );
