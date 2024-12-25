@@ -43,7 +43,7 @@ function App() {
   }, [isLocked, lockTimer]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-100 p-4">
       {screen === "pin" && (
         <PinScreen onSubmit={handlePinSubmit} disabled={isLocked} />
       )}
