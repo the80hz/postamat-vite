@@ -1,4 +1,3 @@
-// ...existing code...
 import React from "react";
 
 export default function ErrorScreen({ lockTimer }) {
@@ -9,4 +8,3 @@ export default function ErrorScreen({ lockTimer }) {
     </div>
   );
 }
-// ...existing code...

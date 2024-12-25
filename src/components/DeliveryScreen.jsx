@@ -1,4 +1,3 @@
-// ...existing code...
 import React from "react";
 
 export default function DeliveryScreen() {
@@ -11,4 +10,3 @@ export default function DeliveryScreen() {
     </div>
   );
 }
-// ...existing code...
