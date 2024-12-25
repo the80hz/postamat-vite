@@ -20,7 +20,16 @@ export default function PinScreen({ onSubmit, disabled }) {
   return (
     <div className="p-6 bg-white rounded shadow-md text-center max-w-sm w-full">
       <h1 className="text-2xl mb-4 text-gray-800">Введите PIN (6 цифр)</h1>
-      <div className="text-3xl font-mono tracking-widest mb-4 text-gray-700">{pin}</div>
+      <div className="flex justify-center space-x-2 mb-4">
+        {Array(6).fill(null).map((_, i) => (
+          <div
+            key={i}
+            className="w-10 h-12 border border-gray-300 rounded-lg flex items-center justify-center text-2xl font-mono text-gray-700"
+          >
+            {pin[i] ?? ""}
+          </div>
+        ))}
+      </div>
       <Keyboard onDigitPress={handleDigit} onClear={handleClear} disabled={disabled} />
       {disabled && <div className="text-red-500 mt-2">Экран временно заблокирован</div>}
     </div>
