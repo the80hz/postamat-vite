@@ -52,7 +52,9 @@ function App() {
           attemptsLeft={attemptsLeft}
         />
       )}
-      {screen === "delivery" && <DeliveryScreen />}
+      {screen === "delivery" && (
+        <DeliveryScreen onReturn={() => setScreen("pin")} />
+      )}
       {screen === "error" && <ErrorScreen lockTimer={lockTimer} />}
     </div>
   );
