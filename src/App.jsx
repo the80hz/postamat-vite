@@ -23,8 +23,12 @@ function App() {
     } else {
       const newAttempts = attempts + 1;
       setAttempts(newAttempts);
-      setShowModal(true); // Показываем модальное окно
-
+  
+      // Показываем модальное окно, только если остались попытки
+      if (newAttempts < 3) {
+        setShowModal(true);
+      }
+  
       if (newAttempts >= 3) {
         setScreen("error");
         setIsLocked(true);
@@ -54,7 +58,6 @@ function App() {
         <PinScreen
           onSubmit={handlePinSubmit}
           disabled={isLocked}
-          attemptsLeft={attemptsLeft}
         />
       )}
       {screen === "delivery" && (
